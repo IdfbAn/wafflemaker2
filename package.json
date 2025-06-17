@@ -1,0 +1,30 @@
+{
+  "name": "wafflemaker2",
+  "version": "1.0.0",
+  "description": "Posts a Discord message to the specified Bluesky account once it gets enough of the specified reaction.",
+  "keywords": [
+    "discord",
+    "bluesky",
+    "bot"
+  ],
+  "homepage": "https://github.com/IdfbAn/wafflemaker2#readme",
+  "bugs": {
+    "url": "https://github.com/IdfbAn/wafflemaker2/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IdfbAn/wafflemaker2.git"
+  },
+  "license": "MIT",
+  "author": "AnIDFB",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@atproto/api": "^0.15.15",
+    "discord.js": "^14.20.0",
+    "dotenv": "^16.5.0"
+  }
+}
