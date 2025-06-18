@@ -1,6 +1,8 @@
 # wafflemaker2
 Posts a Discord message to the specified Bluesky account once it gets enough of the specified reaction.
 
+It only posts messages from the specified channel, not the whole server, so you'll probably want to make another channel specifically for the bot.
+
 ## .env
 For this to work in your Discord bot, you'll need to create a file whose full filename is `.env` (don't forget the dot!),
 and put the following:
