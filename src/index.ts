@@ -16,7 +16,7 @@ const client = new Client({
 
 // When the client is ready, run this code (only once).
 client.once(Events.ClientReady, readyClient => {
-	console.log(`Ready! Logged in as ${readyClient.user.tag}`);
+    console.log(`Ready! Logged in as ${readyClient.user.tag}`);
 });
 
 // React to message on creation
@@ -27,17 +27,17 @@ client.on(Events.MessageCreate, async (message) => {
 });
 
 client.on(Events.MessageReactionAdd, async (reaction) => {
-	// When a reaction is received, check if the structure is partial
-	if (reaction.partial) {
-		// If the message this reaction belongs to was removed, the fetching might result in an API error which should be handled
-		try {
-			await reaction.fetch();
-		} catch (error) {
-			console.error('Something went wrong when fetching the message:', error);
-			// Return as `reaction.message.author` may be undefined/null
-			return;
-		}
-	}
+    // When a reaction is received, check if the structure is partial
+    if (reaction.partial) {
+        // If the message this reaction belongs to was removed, the fetching might result in an API error which should be handled
+        try {
+            await reaction.fetch();
+        } catch (error) {
+            console.error('Something went wrong when fetching the message:', error);
+            // Return as `reaction.message.author` may be undefined/null
+            return;
+        }
+    }
 
     let reactions = (await reaction.message.fetch()).reactions.cache;
 
