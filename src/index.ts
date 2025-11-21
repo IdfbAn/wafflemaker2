@@ -45,7 +45,7 @@ client.on(Events.MessageReactionAdd, async (reaction) => {
         if (reactions.get('⬆️') !== undefined && reactions.get('⬆️').me) {
             console.log("This message has already been posted!"); // If required reaction count has already been reached on this message
         } else if (reactions.get(process.env.REACTION).count === parseInt(process.env.REACTION_COUNT)) {
-            await agent.login({ identifier: process.env.BLUESKY_USERNAME!, password: process.env.BLUESKY_PASSWORD!});
+            await agent.login({ identifier: process.env.BLUESKY_USERNAME!, password: process.env.BLUESKY_PASSWORD! });
             await agent.post({
                 text: reaction.message.toString()
             });
