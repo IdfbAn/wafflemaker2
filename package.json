@@ -25,6 +25,7 @@
   "dependencies": {
     "@atproto/api": "^0.15.15",
     "discord.js": "^14.20.0",
-    "dotenv": "^16.5.0"
+    "dotenv": "^16.5.0",
+    "multiformats": "^13.4.1"
   }
 }
