@@ -1,12 +1,6 @@
-// Require the necessary discord.js classes
-import { Agent, AtpAgent, CredentialSession } from '@atproto/api';
 import 'dotenv/config';
 import { Client, Events, GatewayIntentBits, Partials } from 'discord.js';
-
-// Create a Bluesky agent 
-const agent = new AtpAgent({
-    service: 'https://bsky.social',
-});
+import { agent, createPost } from './bsky.js';
 
 // Create a new client instance
 const client = new Client({
@@ -41,17 +35,7 @@ client.on(Events.MessageReactionAdd, async (reaction) => {
 
     let reactions = (await reaction.message.fetch()).reactions.cache;
 
-    if (reaction.emoji.toString() !== '⬆️' && reaction.message.channelId === process.env.CHANNEL_ID) {
-        if (reactions.get('⬆️') !== undefined && reactions.get('⬆️').me) {
-            console.log("This message has already been posted!"); // If required reaction count has already been reached on this message
-        } else if (reactions.get(process.env.REACTION).count === parseInt(process.env.REACTION_COUNT)) {
-            await agent.login({ identifier: process.env.BLUESKY_USERNAME!, password: process.env.BLUESKY_PASSWORD! });
-            await agent.post({
-                text: reaction.message.toString()
-            });
-            reaction.message.react('⬆️');
-        } // If required reaction count has been reached for the first time on this message
-    }
+    createPost(reaction, reactions, agent);
 });
 
 // Log in to Discord with your client's token
