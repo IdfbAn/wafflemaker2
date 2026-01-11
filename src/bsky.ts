@@ -1,4 +1,4 @@
-import { AtpAgent } from '@atproto/api';
+import { AtpAgent, RichText } from '@atproto/api';
 import { Collection, MessageReaction, PartialMessageReaction } from 'discord.js';
 
 // Create a Bluesky agent 
@@ -12,8 +12,10 @@ export async function createPost(reaction: MessageReaction | PartialMessageReact
             console.log("This message has already been posted!"); // If required reaction count has already been reached on this message
         } else if (reactions.get(process.env.REACTION).count === parseInt(process.env.REACTION_COUNT)) {
             await agent.login({ identifier: process.env.BLUESKY_USERNAME!, password: process.env.BLUESKY_PASSWORD! });
+            const rt = new RichText({ text: reaction.message.toString() });
+            await rt.detectFacets(agent);
             await agent.post({
-                text: reaction.message.toString()
+                text: rt.text
             });
             reaction.message.react('⬆️');
         } // If required reaction count has been reached for the first time on this message
