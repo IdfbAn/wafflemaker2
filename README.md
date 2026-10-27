@@ -18,7 +18,7 @@ Replace the example values with your real ones. Make sure to add 1 to the amount
 
 ## Run
 To run this in your Discord bot:
-1. Install [Node.js](https://nodejs.org)
+1. Install [Node.js](https://nodejs.org) (must be v24 LTS)
 2. Run this command in the root of this repo's directory: `npm install`
 3. Run this command (doesn't matter where): `npm install -g typescript`
 4. Run this command in the root of this repo's directory: `tsc && node .`

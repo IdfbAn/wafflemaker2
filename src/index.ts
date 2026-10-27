@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import { Client, Events, GatewayIntentBits, Partials } from 'discord.js';
-import { agent, createPost } from './bsky.js';
+import { bskyClient, createPost } from './bsky.js';
 
 // Create a new client instance
 const client = new Client({
@@ -16,7 +16,7 @@ client.once(Events.ClientReady, readyClient => {
 // React to message on creation
 client.on(Events.MessageCreate, async (message) => {
     if (message.channelId === process.env.CHANNEL_ID) {
-        message.react(process.env.REACTION);
+        message.react(process.env.REACTION!);
     }
 });
 
@@ -35,7 +35,7 @@ client.on(Events.MessageReactionAdd, async (reaction) => {
 
     let reactions = (await reaction.message.fetch()).reactions.cache;
 
-    createPost(reaction, reactions, agent);
+    createPost(reaction, reactions, bskyClient);
 });
 
 // Log in to Discord with your client's token

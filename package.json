@@ -1,6 +1,6 @@
 {
   "name": "wafflemaker2",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Posts a Discord message to the specified Bluesky account once it gets enough of the specified reaction.",
   "keywords": [
     "discord",
@@ -23,9 +23,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@atproto/api": "^0.1.3",
+    "@atproto/lex": "^0.3.14",
+    "@atproto/lex-password-session": "^0.3.0",
+    "@bsky/sdk": "^1.3.0",
     "discord.js": "^14.27.0",
-    "dotenv": "^16.6.1",
-    "multiformats": "^13.4.2"
+    "dotenv": "^16.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2"
   }
 }
