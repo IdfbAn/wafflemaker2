@@ -23,9 +23,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@atproto/api": "^0.15.15",
-    "discord.js": "^14.20.0",
-    "dotenv": "^16.5.0",
-    "multiformats": "^13.4.1"
+    "@atproto/api": "^0.15.27",
+    "discord.js": "^14.27.0",
+    "dotenv": "^16.6.1",
+    "multiformats": "^13.4.2"
   }
 }
