@@ -7,8 +7,8 @@ It only posts messages from the specified channel, not the whole server, so you'
 For this to work in your Discord bot, you'll need to create a file whose full filename is `.env` (don't forget the dot!),
 and put the following:
 ```dotenv
-BLUESKY_USERNAME=insert_bsky_username_here
-BLUESKY_PASSWORD=insert_bsky_password_here
+BLUESKY_USERNAME="insert_bsky_username_here" (e.g. "definitelynotarealaccount.bsky.social")
+BLUESKY_PASSWORD="insert_bsky_password_here"
 DISCORD_TOKEN=insert_bot_token_here
 CHANNEL_ID=insert_discord_channel_id_here
 REACTION=insert_emoji_here
